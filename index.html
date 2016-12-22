@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Demeter</title>
+    <link rel="stylesheet" href="node_modules/angular-material/angular-material.css">
+    <link rel="stylesheet" href="node_modules/material-design-icons/iconfont/material-icons.css">
+    <link rel="stylesheet" href="main.css">
+
+
+    <script src="node_modules/angular/angular.js"></script>
+    <script src="node_modules/angular-aria/angular-aria.js"></script>
+    <script src="node_modules/angular-messages/angular-messages.js"></script>
+    <script src="node_modules/angular-animate/angular-animate.js"></script>
+    <script src="node_modules/angular-route/angular-route.js"></script>
+    <script src="node_modules/angular-material/angular-material.js"></script>
+
+
+
+</head>
+<body ng-app="DemeterApp" ng-cloak>
+<section ng-controller="MyCtrl">
+<md-toolbar class="md-hue-2">
+    <div class="md-toolbar-tools">
+        <md-button class="md-icon-button" aria-label="Settings">
+            <i class="material-icons md-icons-white md-18">menu</i>
+        </md-button>
+
+        <h2>Demeter</h2>
+
+
+    </div>
+</md-toolbar>
+<span ng-show="showProgress">
+
+<md-progress-linear  md-mode="indeterminate"></md-progress-linear>
+</span>
+
+<md-content class="md-whiteframe-1dp" layout-padding>
+    <md-subheader class="md-primary">Unesi novu masinu</md-subheader>
+
+    <span layout="column">
+        <md-input-container>
+            <label>Proizvodjac</label>
+            <input type="text">
+        </md-input-container>
+
+        <md-input-container>
+            <label>Model</label>
+            <input type="text">
+        </md-input-container>
+
+        <md-input-container>
+            <label>Serijski broj</label>
+            <input type="text">
+        </md-input-container>
+
+        <md-datepicker class="stupid" ng-model="birthday" md-open-on-focus="true"></md-datepicker>
+
+
+        <md-input-container>
+            <label>Broj radnih sati</label>
+            <input type="number">
+        </md-input-container>
+        <div layout layout-align="end center">
+            <md-button>Cancel</md-button>
+            <md-button class="md-raised md-primary" ng-click="submitForm()">Save</md-button>
+        </div>
+    </span>
+</md-content>
+
+
+
+
+<script src="dist/templates.js"></script>
+<script src="index.js"></script>
+</section></body>
+</html>
