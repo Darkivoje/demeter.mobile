@@ -9,7 +9,7 @@ demeter.run(['$rootScope', function ($rootScope) {
 demeter.controller('MyCtrl', ['$scope',
     function ($scope) {
         $scope.birthday = new Date();
-        $scope.something = "hey hey ";
+        $scope.something = "hey Peter ";
         $scope.showProgress = false;
         $scope.submitForm = function () {
             $scope.showProgress = true;

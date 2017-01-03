@@ -22,8 +22,9 @@ var gulp = require('gulp'),
 
 var options = {
     src: './',
-    proteusComponents: './',
+    demeterComponents: './components',
     dist: './dist',
+    publicDist: './public',
     css: './',
     base: './',
     errorHandler: function (title) {
@@ -93,13 +94,13 @@ gulp.task('css', function () {
 });
 
 gulp.task('templates', function () {
-    gulp.src(options.proteusComponents + '*.html')
+    gulp.src(options.demeterComponents + '/**/*.html')
         .pipe(templateCache({
             module: 'templates',
             standalone: true,
             root:'/',
             transformUrl: function (url) {
-                return url.replace(/proteus.[a-z]*/, '');
+                return url;
             }
         }))
         .pipe(gulp.dest(options.dist));
@@ -126,6 +127,6 @@ gulp.task('scripts', function() {
         'node_modules/angular-route/angular-route.min.js',
         'node_modules/angular-material/angular-material.min.js'
         ])
-        .pipe(concat('all.js'))
-        .pipe(gulp.dest(options.dist));
+        .pipe(concat('vendors.js'))
+        .pipe(gulp.dest(options.publicDist));
 });
