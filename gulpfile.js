@@ -5,6 +5,8 @@ var gulp = require('gulp'),
     browserSync = require('browser-sync').create(),
     browserify = require('browserify'),
     minifyify = require('minifyify'),
+    minify = require('gulp-minify'),
+    concat = require('gulp-concat'),
     transform = require('vinyl-transform'),
     source = require('vinyl-source-stream'),
     buffer = require('vinyl-buffer'),
@@ -89,6 +91,7 @@ gulp.task('css', function () {
         .pipe(postcss(processors))
         .pipe(gulp.dest(options.dist));
 });
+
 gulp.task('templates', function () {
     gulp.src(options.proteusComponents + '*.html')
         .pipe(templateCache({
@@ -112,4 +115,17 @@ gulp.task('test',['templates'],function (done) {
     karma.start({
         configFile: __dirname + '/karma.conf.js'
     }, done);
+});
+
+gulp.task('scripts', function() {
+    return gulp.src([
+        'node_modules/angular/angular.min.js',
+        'node_modules/angular-aria/angular-aria.js',
+        'node_modules/angular-messages/angular-messages.min.js',
+        'node_modules/angular-animate/angular-animate.min.js',
+        'node_modules/angular-route/angular-route.min.js',
+        'node_modules/angular-material/angular-material.min.js'
+        ])
+        .pipe(concat('all.js'))
+        .pipe(gulp.dest(options.dist));
 });
