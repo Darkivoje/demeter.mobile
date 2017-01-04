@@ -1,11 +1,15 @@
+/*
 var demeter = angular.module('DemeterApp', ['templates', 'ngMaterial', 'ngAnimate', 'ngMessages', 'ngRoute']);
 
 demeter.run(['$rootScope', function ($rootScope) {
 
 
 
-}]);
 
+}]);
+*/
+
+/*
 demeter.controller('MyCtrl', ['$scope',
     function ($scope) {
         $scope.birthday = new Date();
@@ -16,3 +20,23 @@ demeter.controller('MyCtrl', ['$scope',
         }
 
     }]);
+*/
+
+/*
+
+demeter.controller('MyCtrl', MyCtrl);
+
+MyCtrl.$inject= ['$scope'];
+
+function MyCtrl($scope) {
+    var vm = this;
+    this.birthday = new Date();
+    this.something = "hey Peter ";
+    this.showProgress = false;
+    this.submitForm = function () {
+        this.showProgress = true;
+    }
+}
+
+
+*/

@@ -41,7 +41,7 @@ gulp.task('default', function () {
 
 gulp.task('build', ['lint',
     //'test',
-    'templates', 'js', 'css']);
+    'templates', 'scripts', 'js', 'css']);
 
 gulp.task('serve', ['build'], function () {
     browserSync.init({
@@ -58,7 +58,7 @@ gulp.task('serve', ['build'], function () {
 gulp.task('js', function () {
     var b = browserify({
             debug: true,
-            entries: [options.src + '/index.js']
+            entries: [options.demeterComponents + '/app.module.js']
         })
         .plugin('minifyify', {
             map: 'application.js.map',
@@ -125,7 +125,8 @@ gulp.task('scripts', function() {
         'node_modules/angular-messages/angular-messages.min.js',
         'node_modules/angular-animate/angular-animate.min.js',
         'node_modules/angular-route/angular-route.min.js',
-        'node_modules/angular-material/angular-material.min.js'
+        'node_modules/angular-material/angular-material.min.js',
+        'node_modules/angular-ui-router/release/angular-ui-router.js'
         ])
         .pipe(concat('vendors.js'))
         .pipe(gulp.dest(options.publicDist));
