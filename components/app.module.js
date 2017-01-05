@@ -1,6 +1,6 @@
 require('./machine/machineList.directive.js');
 
-angular.module('app', ['app.machine'])
+angular.module('app', ['app.machine', 'templates'])
 
 
 

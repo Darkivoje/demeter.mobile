@@ -10,7 +10,7 @@ function machineListDirective() {
     return directive;
 
     function link(scope, element, attrs) {
-        console.log('hey directive works');
+        console.log('hey directive seems to work');
         scope.test = "Works"
     }
 }
