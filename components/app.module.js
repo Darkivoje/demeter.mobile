@@ -1,6 +1,8 @@
 require('./machine/machineList.directive.js');
+require('./machine/machine.routes.js');
 require('./layout/header.directive.js');
 require('./app.router.js');
+
 
 angular.module('app', [
 
@@ -9,6 +11,7 @@ angular.module('app', [
     'ngMessages',
     'templates',
     'app.router',
+    'app.machine.router',
     'app.header',
     'app.machine'
 

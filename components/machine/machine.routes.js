@@ -1,21 +1,20 @@
-angular
-    .module('app.customers')
-    .run(appRun);
+angular.module('app.machine.router', [])
 
-/* @ngInject */
-function appRun(routerHelper) {
-    routerHelper.configureStates(getStates());
-}
+.config(configure)
+.controller('SomeController', SomeController);
 
-function getStates() {
-    return [
-        {
-            state: 'customer',
-            config: {
-                abstract: true,
-                template: '<ui-view class="shuffle-animation"/>',
-                url: '/customer'
-            }
-        }
-    ];
+ function SomeController() {
+     var vm = this;
+     vm.title = 'Some Title';
+ }
+
+configure.$inject = ['$stateProvider'];
+
+function configure($stateProvider) {
+    $stateProvider
+        .state('machineList', {
+            url: '/machineList',
+            templateUrl: '/machine/machineList.html',
+            controller: 'SomeController as vm'
+        })
 }
