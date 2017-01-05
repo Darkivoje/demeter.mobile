@@ -1,6 +1,16 @@
 require('./machine/machineList.directive.js');
+require('./layout/header.directive.js');
 
-angular.module('app', ['app.machine', 'templates'])
+
+angular.module('app', [
+    'ngMaterial',
+    'ngAnimate',
+    'ngMessages',
+    'templates',
+    'app.machine',
+    'app.header'
+
+])
 
 
 

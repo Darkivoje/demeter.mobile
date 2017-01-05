@@ -1,7 +1,7 @@
 angular.module('app.machine', [])
-    .directive('machineListDirective', machineListDirective);
+    .directive('machineList', machineList);
 
-function machineListDirective() {
+function machineList() {
     var directive = {
         link: link,
         templateUrl: '/machine/machineList.directive.html',
