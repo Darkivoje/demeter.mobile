@@ -4,35 +4,35 @@
 
         <span layout="column">
         <md-input-container>
-            <label>Proizvodjac</label>
+            <label>Proizveo je</label>
             <input type="text" ng-model="vm.machine.make">
         </md-input-container>
 
         <md-input-container>
-            <label>Model</label>
+            <label>Model se zove</label>
             <input type="text" ng-model="vm.machine.model">
         </md-input-container>
 
         <md-input-container>
-            <label>Serijski broj</label>
+            <label>Njen serijski broj</label>
             <input type="text" ng-model="vm.machine.vin">
         </md-input-container>
 
         <md-input-container>
-          <label>Datum proizvodnje</label>
+          <label>Proizvedena je</label>
         <md-datepicker ng-model="vm.machine.manufactured"
                        md-open-on-focus="true"
         ></md-datepicker>
         </md-input-container>
 
         <md-input-container>
-            <label>Broj radnih sati</label>
+            <label>Radnih sati ima</label>
             <input type="number" ng-model="vm.machine.workHours">
         </md-input-container>
 
         <div layout layout-align="end center">
-            <md-button>Cancel</md-button>
-            <md-button class="md-raised md-primary" ng-click="vm.submitMachine()">Save</md-button>
+            <md-button ng-click="vm.cancelSubmit()">Odustani</md-button>
+            <md-button class="md-raised md-primary" ng-click="vm.submitMachine()">Sacuvaj</md-button>
         </div>
     </span>
     </md-content>

@@ -28,6 +28,10 @@ function MachineFormController($state, $scope, machineService) {
         machineService.addMachine(vm.machine);
         $state.go('machineList')
 
+    };
+
+    vm.cancelSubmit = function () {
+        $state.go('machineList')
     }
 
 

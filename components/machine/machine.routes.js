@@ -14,12 +14,7 @@ angular.module('app.machine.router', [
 function MachineController() {
     var machineVm = this;
     machineVm.title = 'Some Title';
-
-
-
 }
-
-
 
 configure.$inject = ['$stateProvider', '$compileProvider'];
 
