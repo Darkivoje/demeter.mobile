@@ -28,10 +28,10 @@ function configure($stateProvider, $compileProvider) {
         .state('machineList', {
             url: '/machineList',
             templateUrl: '/machine/machineList.html',
-            controller: 'MachineController as vm'
+            controller: 'MachineController as machineVm'
         }).state('machineForm', {
             url: '/machineForm',
             templateUrl: '/machine/machineForm.html',
-            controller: 'MachineController as vm'
+            controller: 'MachineController as machineVm'
         })
 }

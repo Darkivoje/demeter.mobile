@@ -11,10 +11,10 @@ function machineList() {
     return directive;
 }
 
-MachineController.$inject = ['$scope'];
-function MachineController($scope) {
+MachineController.$inject = ['$state', '$scope'];
+function MachineController($state, $scope) {
     var vm = this;
     vm.createMachine = function () {
-
+        $state.go('machineForm')
     }
 }
