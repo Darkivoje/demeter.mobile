@@ -7,6 +7,7 @@ angular.module('app', [
     'ngMaterial',
     'ngAnimate',
     'ngMessages',
+    'ngMdIcons',
     'templates',
     'app.router',
     'app.machine.router',
