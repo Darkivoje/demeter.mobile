@@ -1,4 +1,4 @@
-require('./app.machine.router.js')
+require('./app.machine.router.js');
 
 angular
     .module('app.machine.router')

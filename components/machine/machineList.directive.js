@@ -1,17 +1,20 @@
-angular.module('app.machine', [])
+angular.module('app.machine.list', [])
     .directive('machineList', machineList);
 
 function machineList() {
     var directive = {
-        link: link,
+        controller: MachineController,
+        controllerAs: 'vm',
         templateUrl: '/machine/machineList.directive.html',
         restrict: 'EA'
     };
     return directive;
+}
 
-    function link(scope, element, attrs) {
-        console.log('hey directive seems to work');
-        scope.test = "Works"
+MachineController.$inject = ['$scope'];
+function MachineController($scope) {
+    var vm = this;
+    vm.createMachine = function () {
 
     }
 }
