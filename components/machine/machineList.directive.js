@@ -12,5 +12,6 @@ function machineList() {
     function link(scope, element, attrs) {
         console.log('hey directive seems to work');
         scope.test = "Works"
+
     }
 }

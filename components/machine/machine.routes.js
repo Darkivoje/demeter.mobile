@@ -8,9 +8,12 @@ angular.module('app.machine.router', [])
      vm.title = 'Some Title';
  }
 
-configure.$inject = ['$stateProvider'];
+configure.$inject = ['$stateProvider', '$compileProvider'];
 
-function configure($stateProvider) {
+function configure($stateProvider, $compileProvider) {
+
+    $compileProvider.preAssignBindingsEnabled(true);
+
     $stateProvider
         .state('machineList', {
             url: '/machineList',

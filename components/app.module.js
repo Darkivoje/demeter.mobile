@@ -3,7 +3,6 @@ require('./machine/machine.routes.js');
 require('./layout/header.directive.js');
 require('./app.router.js');
 
-
 angular.module('app', [
 
     'ngMaterial',
@@ -19,8 +18,8 @@ angular.module('app', [
 
 
 
-.run(runBlock);
 
+.run(runBlock);
 
 function runBlock() {
     console.log('app sterted');
