@@ -1,11 +1,14 @@
 <section>
     Machine {{title}}
     <br>
-    from controller  {{vm.test}}
-    <div layout="row" >
+    from controller {{vm.machineList}}
+    <div layout="row">
 
     </div>
-    <md-button class="md-fab md-icon-button" aria-label="FAB" ng-click="vm.createMachine()">
-        <i class="material-icons">add</i>
-    </md-button>
+    <div layout layout-align="end center">
+
+        <md-button class="md-fab md-icon-button" aria-label="FAB" ng-click="vm.createMachine()">
+            <i class="material-icons">add</i>
+        </md-button>
+    </div>
 </section>

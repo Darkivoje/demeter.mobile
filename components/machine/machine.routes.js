@@ -12,8 +12,11 @@ angular.module('app.machine.router', [
     .controller('MachineController', MachineController);
 
 function MachineController() {
-    var vm = this;
-    vm.title = 'Some Title';
+    var machineVm = this;
+    machineVm.title = 'Some Title';
+
+
+
 }
 
 

@@ -1,4 +1,35 @@
 <section>
-    <input type="text">
-    <button ng-click="vm.updateList">OK</button>
+    <md-content layout-padding>
+        <md-subheader class="md-primary">Nabavio sam novu masinu</md-subheader>
+
+        <span layout="column">
+        <md-input-container>
+            <label>Proizvodjac</label>
+            <input type="text" ng-model="vm.machine.make">
+        </md-input-container>
+
+        <md-input-container>
+            <label>Model</label>
+            <input type="text" ng-model="vm.machine.model">
+        </md-input-container>
+
+        <md-input-container>
+            <label>Serijski broj</label>
+            <input type="text" ng-model="vm.machine.vin">
+        </md-input-container>
+
+        <md-datepicker ng-model="vm.machine.manufactured" md-open-on-focus="true"></md-datepicker>
+
+        <md-input-container>
+            <label>Broj radnih sati</label>
+            <input type="number" ng-model="vm.machine.workHour">
+        </md-input-container>
+
+        <div layout layout-align="end center">
+            <md-button>Cancel</md-button>
+            <md-button class="md-raised md-primary" ng-click="vm.submitMachine()">Save</md-button>
+        </div>
+    </span>
+    </md-content>
+
 </section>
