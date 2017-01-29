@@ -16,13 +16,9 @@ function machineList() {
 MachineController.$inject = ['$state', '$scope', 'machineService'];
 function MachineController($state, $scope, machineService) {
     var vm = this;
+    vm.machineList = machineService.getMachines();
+    
     vm.createMachine = function () {
         $state.go('machineForm')
     };
-    vm.machineList = vm.machineList || [];
-    if (angular.isDefined(machineService.getMachine)) {
-        console.log('went here');
-        vm.machineList = vm.machineList.concat(machineService.getMachine())
-    }
-    
 }

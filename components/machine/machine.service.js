@@ -2,18 +2,18 @@ angular.module('app.machine.service', [])
     .factory('machineService', machineService);
 
 function machineService() {
+    var machines = [];
     var service = {
-        setMachine: setMachine,
-        getMachine: getMachine
+        addMachine: addMachine,
+        getMachines: getMachines
     };
     return service;
 
-    var machine;
-    function setMachine(data) {
-        machine = data;
+    function addMachine(data) {
+        getMachines().push(data);
     }
 
-    function getMachine() {
-        return machine
+    function getMachines() {
+        return machines
     }
 }

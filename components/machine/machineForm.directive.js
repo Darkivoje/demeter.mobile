@@ -25,7 +25,7 @@ function MachineFormController($state, $scope, machineService) {
     };
 
     vm.submitMachine = function () {
-        machineService.setMachine(vm.machine);
+        machineService.addMachine(vm.machine);
         $state.go('machineList')
 
     }
