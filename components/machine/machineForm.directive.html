@@ -18,11 +18,16 @@
             <input type="text" ng-model="vm.machine.vin">
         </md-input-container>
 
-        <md-datepicker ng-model="vm.machine.manufactured" md-open-on-focus="true"></md-datepicker>
+        <md-input-container>
+          <label>Datum proizvodnje</label>
+        <md-datepicker ng-model="vm.machine.manufactured"
+                       md-open-on-focus="true"
+        ></md-datepicker>
+        </md-input-container>
 
         <md-input-container>
             <label>Broj radnih sati</label>
-            <input type="number" ng-model="vm.machine.workHour">
+            <input type="number" ng-model="vm.machine.workHours">
         </md-input-container>
 
         <div layout layout-align="end center">

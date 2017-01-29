@@ -1,8 +1,23 @@
 <section>
-    Machine {{title}}
-    <br>
-    from controller {{vm.machineList}}
+    <!--Machine {{title}}-->
+    <!--<br>-->
+    <!--from controller-->
     <div layout="row">
+
+        <md-list ng-cloak>
+
+            <md-subheader class="md-no-sticky">Radne masine</md-subheader>
+            <md-list-item ng-repeat="machine in vm.machineList">
+                <div class="md-list-item-text">
+                    <h4>{{machine.make}} - {{machine.model}}</h4>
+                    <p>
+                        Kupljena {{machine.manufactured | date : 'dd/MM/yyyy'}}, sa {{machine.workHours}} radnih sati, serijski broj: {{machine.vin}}
+                    </p>
+                </div>
+            </md-list-item>
+
+
+
 
     </div>
     <div layout layout-align="end center">
