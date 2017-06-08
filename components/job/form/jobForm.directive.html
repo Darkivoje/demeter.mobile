@@ -1,0 +1,56 @@
+<section>
+    <md-content layout-padding>
+        <md-subheader class="md-primary">Zelim da unesem zavrsen posao</md-subheader>
+
+        <span layout="column">
+        <md-input-container>
+            <label>Uradjeno je</label>
+            <md-select ng-model="vm.job.type">
+                <md-option ng-repeat="jobType in vm.availableJobs" ng-value="jobType.value">
+                    {{jobType.title}}
+                </md-option>
+            </md-select>
+        </md-input-container>
+
+        <md-input-container>
+            <label>Od masina sam koristio</label>
+            <md-select ng-model="vm.job.machine" multiple>
+                <md-optgroup label="Sa pogonom">
+                    <md-option ng-value="machine.id" ng-repeat="machine in vm.availableMachines | filter: {category: 'powered' }">{{machine.name}}</md-option>
+                </md-optgroup>
+                <md-optgroup label="Vucne">
+                    <md-option ng-value="machine.id" ng-repeat="machine in vm.availableMachines | filter: {category: 'towed' }">{{machine.name}}</md-option>
+                </md-optgroup>
+            </md-select>
+        </md-input-container>
+
+        <md-input-container>
+            <label>Na poljani</label>
+            <md-select ng-model="vm.job.field">
+                <md-option ng-repeat="field in vm.availableFields" ng-value="field.id">
+                    {{field.name}}
+                </md-option>
+            </md-select>
+        </md-input-container>
+
+
+        <md-input-container>
+            <label>Moja zapazanja su</label>
+            <textarea type="text" ng-model="vm.job.note"></textarea>
+        </md-input-container>
+
+        <md-input-container>
+          <label>Na datum</label>
+        <md-datepicker ng-model="vm.job.doneOn"
+                       md-open-on-focus="true"
+        ></md-datepicker>
+        </md-input-container>
+
+        <div layout layout-align="end center">
+            <md-button ng-click="vm.cancelSubmit()">Odustani</md-button>
+            <md-button class="md-raised md-primary" ng-click="vm.submitMachine()">Sacuvaj</md-button>
+        </div>
+    </span>
+    </md-content>
+
+</section>
