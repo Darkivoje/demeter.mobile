@@ -19,15 +19,18 @@ function MachineFormController($state, $scope, machineService) {
     vm.machine = {
         make: '',
         model: '',
+        plates: '',
         vin: '',
         manufactured: new Date(),
         workHours: ''
     };
 
     vm.submitMachine = function () {
-        machineService.addMachine(vm.machine);
-        $state.go('machineList')
+        machineService.save(vm.machine).then(function (response) {
 
+            $state.go('machineList')
+
+        });
     };
 
     vm.cancelSubmit = function () {

@@ -16,7 +16,10 @@ function machineList() {
 MachineController.$inject = ['$state', '$scope', 'machineService'];
 function MachineController($state, $scope, machineService) {
     var vm = this;
-    vm.machineList = machineService.getMachines();
+    machineService.getMachines().then(function (response) {
+      console.log(response);
+      vm.machineList = response
+    });
     
     vm.createMachine = function () {
         $state.go('machineForm')
