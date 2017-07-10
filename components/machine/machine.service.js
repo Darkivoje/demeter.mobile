@@ -18,14 +18,14 @@ function machineService($http) {
     }
 
     function getMachines() {
-      return $http.get('http://localhost:8080/machine/')
+      return $http.get('https://pure-stream-30641.herokuapp.com/machine/')
         .then(function (response) {
           return response.data
         });
     }
 
     function save(machine) {
-        return $http.post('http://localhost:8080/machine/', machine)
+        return $http.post('https://pure-stream-30641.herokuapp.com/machine/', machine)
             .then(function (response) {
               return response.data
         });
