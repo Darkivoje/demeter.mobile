@@ -1,4 +1,6 @@
-angular.module('app.header', ['ngMaterial'])
+require('./sidenav/sidenav.service');
+
+angular.module('app.header', ['app.sidenav.service'])
     .directive('header', header);
 
 
@@ -11,12 +13,11 @@ function header() {
     return directive;
 }
 
-HeaderController.$inject = ['$scope', '$mdSidenav'];
-function HeaderController($scope, $mdSidenav) {
+HeaderController.$inject = ['sidenavService'];
+function HeaderController(sidenavService) {
   var vm = this;
-
-  vm.toggleRight =  function()  {
-    $mdSidenav('right').toggle();
+  vm.toggleSidenav = function() {
+    sidenavService.toggleSidenav();
   };
 
 }

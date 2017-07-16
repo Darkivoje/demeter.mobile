@@ -11,14 +11,7 @@ function sidenav() {
   return directive;
 }
 
-
-
-SidenavController.$inject = ['$mdSidenav'];
-function SidenavController($scope, $mdSidenav) {
+function SidenavController(sidenavService) {
   var vm = this;
-
-  vm.toggleRight =  function()  {
-    $mdSidenav('right').toggle();
-  };
 
 }
