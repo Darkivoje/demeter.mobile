@@ -1,7 +1,9 @@
 require('./form/jobForm.directive.js');
+require('./list/jobList.component.js');
 
 angular.module('app.job.router', [
-    'app.job.form'
+    'app.job.form',
+    'app.job.list'
 ])
     .config(configure)
 
@@ -22,6 +24,11 @@ function configure($stateProvider, $compileProvider) {
         .state('jobForm', {
             url: '/jobForm',
             templateUrl: '/job/form/jobForm.html',
+            controller: 'JobController as jobVm'
+        })
+      .state('jobList', {
+            url: '/jobList',
+            templateUrl: '/job/list/jobList.html',
             controller: 'JobController as jobVm'
         })
 }

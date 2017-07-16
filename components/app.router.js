@@ -1,4 +1,3 @@
-
 angular.module('app.router', ['ui.router'])
 
 .config(['$stateProvider' , '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
