@@ -1,6 +1,6 @@
 require('./../farmland.service');
 
-angular.module('app.farmland.list', [])
+angular.module('app.farmland.list', ['app.farmland.service'])
   .directive('farmlandList', farmlandList);
 
 function farmlandList() {
@@ -22,6 +22,7 @@ function FarmlandListController($state, farmlandService) {
   function onInit() {
     vm.farmlandList = [];
     farmlandService.get().then(function (response) {
+      console.log(response);
       vm.farmlandList = response
     });
 
