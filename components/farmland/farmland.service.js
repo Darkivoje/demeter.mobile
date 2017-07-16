@@ -7,7 +7,8 @@ farmlandService.$inject = ['$http'];
 function farmlandService($http) {
   var service = {
     get: get,
-    save: save
+    save: save,
+    getEmptyFarm: getEmptyFarm
   };
   return service;
 
@@ -19,10 +20,19 @@ function farmlandService($http) {
       });
   }
 
-  function save(machine) {
-    return $http.post('https://pure-stream-30641.herokuapp.com/machine/', machine)
+  function save(farmland) {
+    return $http.post('https://pure-stream-30641.herokuapp.com/farmland/', farmland)
       .then(function (response) {
         return response.data
       });
   }
+
+  function getEmptyFarm() {
+    return {
+      name: '',
+      location: '',
+      size: 0,
+      number: ''
+    };
+  };
 }

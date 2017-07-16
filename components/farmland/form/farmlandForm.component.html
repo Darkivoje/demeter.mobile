@@ -1,1 +1,33 @@
-Farmland form
+<section>
+    <md-content layout-padding>
+        <md-subheader class="md-primary">Zelim da unesem novu poljanu</md-subheader>
+
+        <span layout="column">
+        <md-input-container>
+            <label>Ime poljane je</label>
+            <input type="text" ng-model="vm.farmland.name">
+        </md-input-container>
+
+        <md-input-container>
+            <label>Nalazi se</label>
+            <input type="text" ng-model="vm.farmland.location">
+        </md-input-container>
+
+        <md-input-container>
+            <label>Njen broj je</label>
+            <input type="number" ng-model="vm.farmland.number">
+        </md-input-container>
+
+        <md-input-container>
+            <label>Velika je (ari)</label>
+            <input type="number" ng-model="vm.farmland.size">
+        </md-input-container>
+
+        <div layout layout-align="end center">
+            <md-button ng-click="vm.cancelSubmit()">Odustani</md-button>
+            <md-button class="md-raised md-primary" ng-click="vm.submitFarmland()">Sacuvaj</md-button>
+        </div>
+    </span>
+    </md-content>
+
+</section>
