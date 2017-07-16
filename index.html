@@ -10,67 +10,10 @@
 </head>
 <body>
 <section ng-app="app" ng-cloak>
-    <header></header>
-
-    <div ui-view></div>
+    <main-view></main-view>
 
     <script src="dist/templates.js"></script>
     <script src="bundle.js"></script>
 </section>
 </body>
 </html>
-
-<!--
-
-
-
-<body ng-app="DemeterApp" ng-cloak>
-<section ng-controller="MyCtrl">
-    <md-toolbar class="md-hue-2">
-        <div class="md-toolbar-tools">
-            <md-button class="md-icon-button" aria-label="Settings">
-                <i class="material-icons md-icons-white md-18">menu</i>
-            </md-button>
-
-            <h2>Demeter</h2>
-
-
-        </div>
-    </md-toolbar>
-    <span ng-show="showProgress">
-
-<md-progress-linear  md-mode="indeterminate"></md-progress-linear>
-</span>
-
-    <md-content layout-padding>
-        <md-subheader class="md-primary">Unesi novu masinu</md-subheader>
-
-        <span layout="column">
-        <md-input-container>
-            <label>Proizvodjac</label>
-            <input type="text">
-        </md-input-container>
-
-        <md-input-container>
-            <label>Model</label>
-            <input type="text">
-        </md-input-container>
-
-        <md-input-container>
-            <label>Serijski broj</label>
-            <input type="text">
-        </md-input-container>
-
-        <md-datepicker class="stupid" ng-model="birthday" md-open-on-focus="true"></md-datepicker>
-
-
-        <md-input-container>
-            <label>Broj radnih sati</label>
-            <input type="number">
-        </md-input-container>
-        <div layout layout-align="end center">
-            <md-button>Cancel</md-button>
-            <md-button class="md-raised md-primary" ng-click="submitForm()">Save</md-button>
-        </div>
-    </span>
-    </md-content>-->

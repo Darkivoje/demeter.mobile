@@ -1,17 +1,22 @@
-angular.module('app.header', [])
+angular.module('app.header', ['ngMaterial'])
     .directive('header', header);
+
 
 function header() {
     var directive = {
-        link: link,
-        templateUrl: '/layout/header.directive.html',
-        restrict: 'EA'
+        controller: HeaderController,
+        controllerAs: 'vm',
+        templateUrl: '/layout/header.directive.html'
     };
     return directive;
-
-    function link(scope, element, attrs) {
-        console.log('header loaded');
-
-    }
 }
 
+HeaderController.$inject = ['$scope', '$mdSidenav'];
+function HeaderController($scope, $mdSidenav) {
+  var vm = this;
+
+  vm.toggleRight =  function()  {
+    $mdSidenav('right').toggle();
+  };
+
+}
