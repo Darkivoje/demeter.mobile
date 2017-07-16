@@ -1,20 +1,7 @@
-require('./list/machineList.directive.js');
-require('./form/machineForm.directive.js');
+require('./machine.routes');
 
-angular.module('app.machine.router', [
-    'app.machine.list',
-    'app.machine.form'
-])
-
-.config(configure)
-
-//extract this controller to machine.controller.js
-    .controller('MachineController', MachineController);
-
-function MachineController() {
-    var machineVm = this;
-    machineVm.title = 'Some Title';
-}
+angular.module('app.machine.router', ['app.machine.modules'])
+  .config(configure);
 
 configure.$inject = ['$stateProvider', '$compileProvider'];
 
@@ -25,11 +12,9 @@ function configure($stateProvider, $compileProvider) {
     $stateProvider
         .state('machineList', {
             url: '/machineList',
-            templateUrl: '/machine/list/machineList.html',
-            controller: 'MachineController as machineVm'
+            templateUrl: '/machine/list/machineList.html'
         }).state('machineForm', {
             url: '/machineForm',
-            templateUrl: '/machine/form/machineForm.html',
-            controller: 'MachineController as machineVm'
+            templateUrl: '/machine/form/machineForm.html'
         })
 }
