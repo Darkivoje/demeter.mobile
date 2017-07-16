@@ -1,5 +1,5 @@
 require('./list/machineList.directive.js');
-require('./machineForm.directive.js');
+require('./form/machineForm.directive.js');
 
 angular.module('app.machine.router', [
     'app.machine.list',
@@ -29,7 +29,7 @@ function configure($stateProvider, $compileProvider) {
             controller: 'MachineController as machineVm'
         }).state('machineForm', {
             url: '/machineForm',
-            templateUrl: '/machine/machineForm.html',
+            templateUrl: '/machine/form/machineForm.html',
             controller: 'MachineController as machineVm'
         })
 }

@@ -1,4 +1,4 @@
-require('./machine.service');
+require('./../machine.service');
 
 angular.module('app.machine.form', ['app.machine.service'])
     .directive('machineForm', machineForm);
@@ -7,7 +7,7 @@ function machineForm() {
     var directive = {
         controller: MachineFormController,
         controllerAs: 'vm',
-        templateUrl: '/machine/machineForm.directive.html',
+        templateUrl: '/machine/form/machineForm.directive.html',
         restrict: 'EA'
     };
     return directive;
