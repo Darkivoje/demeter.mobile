@@ -4,6 +4,7 @@ require('./layout/header.directive.js');
 require('./app.router.js');
 require('./layout/main/mainView.component.js');
 require('./layout/sidenav/sidenav.component.js');
+require('./farmland/farmland.modules');
 
 angular.module('app', [
 
@@ -17,7 +18,8 @@ angular.module('app', [
     'app.job.router',
     'app.header',
     'app.sidenav',
-    'app.mainView'
+    'app.mainView',
+    'app.farmland.modules'
 ])
 
 
