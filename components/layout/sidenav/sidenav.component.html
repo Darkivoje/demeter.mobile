@@ -1,10 +1,16 @@
 <md-sidenav class="md-sidenav-right" md-component-id="right" md-whiteframe="4">
-    <md-toolbar class="md-hue-2">
-        <h1 class="md-toolbar-tools">Choose: </h1>
+    <md-toolbar class="md-hue-1">
+        <h1 class="md-toolbar-tools">Zanimaju me</h1>
     </md-toolbar>
     <md-content layout-margin md-autofocus>
-        <p>
-            sidebar juhu
-        </p>
+        <md-list>
+            <md-list-item class="secondary-button-padding" ui-sref="machineList">
+                <p>Masine</p>
+            </md-list-item>
+            <md-list-item class="secondary-button-padding" ui-sref="farmlandList">
+                <p>Poljane</p>
+            </md-list-item>
+        </md-list>
     </md-content>
 </md-sidenav>
+

@@ -22,7 +22,6 @@ function FarmlandListController($state, farmlandService) {
   function onInit() {
     vm.farmlandList = [];
     farmlandService.get().then(function (response) {
-      console.log(response);
       vm.farmlandList = response
     });
 

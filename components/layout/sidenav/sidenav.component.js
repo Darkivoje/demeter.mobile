@@ -1,4 +1,6 @@
-angular.module('app.sidenav', ['ngMaterial'])
+require('./sidenav.service.js');
+
+angular.module('app.sidenav', ['ngMaterial', 'app.sidenav.service'])
   .directive('sidenav', sidenav);
 
 function sidenav() {
@@ -11,7 +13,12 @@ function sidenav() {
   return directive;
 }
 
-function SidenavController(sidenavService) {
+SidenavController.$inject = ['$scope', 'sidenavService'];
+function SidenavController($scope, sidenavService) {
   var vm = this;
 
+  vm.goto = function(state) {
+      console.log('going to ', state);
+    //sidenavService.goto(state);
+  };
 }
