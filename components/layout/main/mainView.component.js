@@ -11,5 +11,4 @@ function mainView() {
 }
 
 function mainViewController() {
-  console.log('app content is loaded');
 }

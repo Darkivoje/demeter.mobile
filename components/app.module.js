@@ -26,5 +26,4 @@ angular.module('app', [
 .run(runBlock);
 
 function runBlock() {
-    console.log('app sterted');
 }

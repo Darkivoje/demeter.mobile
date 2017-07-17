@@ -5,8 +5,8 @@ angular.module('app.sidenav', ['ngMaterial', 'app.sidenav.service'])
 
 function sidenav() {
   var directive = {
-    controller: SidenavController(),
     controllerAs: 'vm',
+    controller: SidenavController,
     templateUrl: '/layout/sidenav/sidenav.component.html',
     restrict: 'EA'
   };
@@ -14,11 +14,16 @@ function sidenav() {
 }
 
 SidenavController.$inject = ['$scope', 'sidenavService'];
-function SidenavController($scope, sidenavService) {
-  var vm = this;
 
-  vm.goto = function(state) {
-      console.log('going to ', state);
-    //sidenavService.goto(state);
+function SidenavController($scope, sidenavService) {
+
+  $scope.goTo = function(state) {
+    sidenavService.goto(state);
+    sidenavService.toggleSidenav();
   };
+
+  $scope.toggleSidenav = function() {
+    sidenavService.toggleSidenav();
+  };
+
 }

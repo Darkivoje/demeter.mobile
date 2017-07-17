@@ -17,7 +17,6 @@ function JobListController() {
   var vm = this;
   vm.$onInit = onInit;
   function onInit() {
-    console.log('job list loaded');
   }
 
 

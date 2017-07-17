@@ -13,10 +13,9 @@ function header() {
     return directive;
 }
 
-HeaderController.$inject = ['sidenavService'];
-function HeaderController(sidenavService) {
-  var vm = this;
-  vm.toggleSidenav = function() {
+HeaderController.$inject = ['$scope', 'sidenavService'];
+function HeaderController($scope, sidenavService) {
+  $scope.toggleSidenav = function() {
     sidenavService.toggleSidenav();
   };
 

@@ -24,7 +24,6 @@ function FarmlandFormController($state, farmlandService) {
   }
 
   vm.submitFarmland = function () {
-    console.log(vm.farmland);
     farmlandService.save(vm.farmland).then(function (response) {
       $state.go('farmlandList')
     });

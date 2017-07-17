@@ -15,7 +15,6 @@ function farmlandService($http) {
   function get() {
     return $http.get('https://pure-stream-30641.herokuapp.com/farmland/')
       .then(function (response) {
-        console.log(response.data);
         return response.data
       });
   }

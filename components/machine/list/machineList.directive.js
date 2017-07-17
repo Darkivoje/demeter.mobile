@@ -17,7 +17,6 @@ MachineController.$inject = ['$state', '$scope', 'machineService'];
 function MachineController($state, $scope, machineService) {
     var vm = this;
     machineService.getMachines().then(function (response) {
-      console.log(response);
       vm.machineList = response
     });
     

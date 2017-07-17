@@ -1,13 +1,17 @@
 <md-sidenav class="md-sidenav-right" md-component-id="right" md-whiteframe="4">
-    <md-toolbar class="md-hue-1">
-        <h1 class="md-toolbar-tools">Zanimaju me</h1>
+    <md-toolbar class="md-hue-2" layout="row" layout-align="space-between center">
+        <h2 class="md-toolbar-tools">Glavni meni</h2>
+        <md-button class="md-icon-button" aria-label="Settings" ng-click="toggleSidenav()">
+            <ng-md-icon icon="menu" style="fill: white;"></ng-md-icon>
+        </md-button>
+
     </md-toolbar>
-    <md-content layout-margin md-autofocus>
+    <md-content md-autofocus>
         <md-list>
-            <md-list-item class="secondary-button-padding" ui-sref="machineList">
+            <md-list-item class="secondary-button-padding" ng-click="goTo('machineList')">
                 <p>Masine</p>
             </md-list-item>
-            <md-list-item class="secondary-button-padding" ui-sref="farmlandList">
+            <md-list-item class="secondary-button-padding" ng-click="goTo('farmlandList')">
                 <p>Poljane</p>
             </md-list-item>
         </md-list>
