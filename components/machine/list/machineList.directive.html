@@ -3,7 +3,7 @@
 
     <md-list ng-cloak ng-show="vm.machineList.length > 0">
         <md-divider inset></md-divider>
-        <md-list-item ng-repeat="machine in vm.machineList" class="md-3-line">
+        <md-list-item ng-repeat="machine in vm.machineList" class="md-3-line" ng-click="vm.edit(machine.id)">
             <div class="md-list-item-text">
                 <h3>{{machine.model}} - {{machine.make}}</h3>
                 <h4>Reg. br: {{machine.plates}}</h4>

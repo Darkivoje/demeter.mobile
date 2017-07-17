@@ -1,42 +1,41 @@
 require('./../machine.service');
 
 angular.module('app.machine.form', ['app.machine.service'])
-    .directive('machineForm', machineForm);
+  .directive('machineForm', machineForm);
 
 function machineForm() {
-    var directive = {
-        controller: MachineFormController,
-        controllerAs: 'vm',
-        templateUrl: '/machine/form/machineForm.directive.html',
-        restrict: 'EA'
-    };
-    return directive;
+  var directive = {
+    controller: MachineFormController,
+    controllerAs: 'vm',
+    templateUrl: '/machine/form/machineForm.directive.html',
+    restrict: 'EA'
+  };
+  return directive;
 }
 
-MachineFormController.$inject = ['$state', '$scope', 'machineService'];
-function MachineFormController($state, $scope, machineService) {
-    var vm = this;
-    vm.machine = {
-        make: '',
-        model: '',
-        plates: '',
-        vin: '',
-        manufactured: new Date(),
-        workHours: ''
-    };
+MachineFormController.$inject = ['$state', '$stateParams', 'machineService'];
+function MachineFormController($state, $stateParams, machineService) {
+  var vm = this;
+  vm.$onInit = onInit;
 
-    vm.submitMachine = function () {
-        machineService.save(vm.machine).then(function (response) {
-
-            $state.go('machineList')
-
-        });
-    };
-
-    vm.cancelSubmit = function () {
-        $state.go('machineList')
+  function onInit() {
+    vm.machine = machineService.getEmptyMachine();
+    if ($stateParams.id) {
+      machineService.getById($stateParams.id).then(function (response) {
+        vm.machine = response
+      });
     }
+  }
 
+  vm.submitMachine = function () {
+    machineService.save(vm.machine).then(function (response) {
+      $state.go('machineList')
+    });
+  };
+
+  vm.cancelSubmit = function () {
+    $state.go('machineList')
+  }
 
 
 }

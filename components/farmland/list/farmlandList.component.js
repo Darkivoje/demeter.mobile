@@ -25,7 +25,7 @@ function FarmlandListController($state, farmlandService) {
       vm.farmlandList = response
     });
   }
-  
+
   vm.edit = function (id) {
     $state.go('farmlandForm', {id: id})
   };

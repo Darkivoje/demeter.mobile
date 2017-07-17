@@ -32,14 +32,14 @@ function farmlandService($http) {
       .then(function (response) {
         return response.data
       });
-  };
+  }
 
   function create(farmland) {
     return $http.post('https://pure-stream-30641.herokuapp.com/farmland/', farmland)
       .then(function (response) {
         return response.data
       });
-  };
+  }
 
   function save(farmland) {
     if (farmland.id) {

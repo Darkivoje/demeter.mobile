@@ -12,7 +12,7 @@ function configure($stateProvider, $compileProvider) {
   $stateProvider
     .state('farmlandList', {
       url: '/farmlandList',
-      templateUrl: '/farmland/list/farmlandList.html'
+      templateUrl: '/farmland/list/farmlandList.html',
     }).state('farmlandForm', {
       url: '/farmlandForm',
       templateUrl: '/farmland/form/farmlandForm.html',
