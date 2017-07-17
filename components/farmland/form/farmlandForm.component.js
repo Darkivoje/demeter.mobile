@@ -13,18 +13,24 @@ function farmlandForm() {
   return directive;
 }
 
-FarmlandFormController.$inject = ['$state', 'farmlandService'];
+FarmlandFormController.$inject = ['$state', '$stateParams', 'farmlandService'];
 
-function FarmlandFormController($state, farmlandService) {
+function FarmlandFormController($state, $stateParams, farmlandService) {
   var vm = this;
   vm.$onInit = onInit;
+  console.log($stateParams);
 
   function onInit() {
     vm.farmland = farmlandService.getEmptyFarm();
+    if ($stateParams.id) {
+      farmlandService.getById($stateParams.id).then(function (response) {
+        vm.farmland = response
+      });
+    }
   }
 
   vm.submitFarmland = function () {
-    farmlandService.save(vm.farmland).then(function (response) {
+    farmlandService.save(vm.farmland).then(function () {
       $state.go('farmlandList')
     });
   };
@@ -32,7 +38,6 @@ function FarmlandFormController($state, farmlandService) {
   vm.cancelSubmit = function () {
     $state.go('farmlandList')
   }
-
 
 
 }

@@ -15,6 +15,9 @@ function configure($stateProvider, $compileProvider) {
       templateUrl: '/farmland/list/farmlandList.html'
     }).state('farmlandForm', {
       url: '/farmlandForm',
-      templateUrl: '/farmland/form/farmlandForm.html'
+      templateUrl: '/farmland/form/farmlandForm.html',
+      params: {
+        id: undefined
+      }
     })
 }

@@ -1,26 +1,27 @@
 <section>
-    <div layout="row">
+    <md-subheader class="md-no-sticky">Moje radne masine:</md-subheader>
 
-        <md-list ng-cloak ng-show="vm.machineList.length > 0">
-            <md-subheader class="md-no-sticky">Moje radne masine:</md-subheader>
-            <md-list-item ng-repeat="machine in vm.machineList" class="md-3-line">
-                <div class="md-list-item-text">
-                    <h3>{{machine.model}} - {{machine.make}}</h3>
-                    <h4>Reg. br: {{machine.plates}}</h4>
-                    <p>
-                        Kupljena {{machine.manufactured | date : 'dd/MM/yyyy'}}, sa {{machine.workHours}} radnih sati
-                    </p>
-                </div>
-            </md-list-item>
-        </md-list>
-        <md-content layout-padding ng-show="vm.machineList == 0">
-            <p>
-                Nemas ni jednu unetu masinu. <br>Klikni na
-                <ng-md-icon icon="add"></ng-md-icon>
-                u donjem desnom uglu ako si nabavio novu masinu
-            </p>
-        </md-content>
-    </div>
+    <md-list ng-cloak ng-show="vm.machineList.length > 0">
+        <md-divider inset></md-divider>
+        <md-list-item ng-repeat="machine in vm.machineList" class="md-3-line">
+            <div class="md-list-item-text">
+                <h3>{{machine.model}} - {{machine.make}}</h3>
+                <h4>Reg. br: {{machine.plates}}</h4>
+                <p>
+                    Kupljena {{machine.manufactured | date : 'dd/MM/yyyy'}}, sa {{machine.workHours}} radnih sati
+                </p>
+            </div>
+        <md-divider inset></md-divider>
+        </md-list-item>
+
+    </md-list>
+    <md-content layout-padding ng-show="vm.machineList == 0">
+        <p>
+            Nemas ni jednu unetu masinu. <br>Klikni na
+            <ng-md-icon icon="add"></ng-md-icon>
+            u donjem desnom uglu ako si nabavio novu masinu
+        </p>
+    </md-content>
     <md-button class="md-fab md-icon-button md-fab-bottom-right" style="position: fixed !important;" aria-label="FAB"
                ng-click="vm.createMachine()">
         <ng-md-icon icon="add"></ng-md-icon>

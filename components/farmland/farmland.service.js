@@ -8,7 +8,8 @@ function farmlandService($http) {
   var service = {
     get: get,
     save: save,
-    getEmptyFarm: getEmptyFarm
+    getEmptyFarm: getEmptyFarm,
+    getById: getById
   };
   return service;
 
@@ -19,8 +20,15 @@ function farmlandService($http) {
       });
   }
 
+  function getById(id) {
+    return $http.get('https://pure-stream-30641.herokuapp.com/farmland/' + id)
+      .then(function (response) {
+        return response.data
+      });
+  }
+
   function save(farmland) {
-    return $http.post('https://pure-stream-30641.herokuapp.com/farmland/', farmland)
+    return $http.put('https://pure-stream-30641.herokuapp.com/farmland/', farmland)
       .then(function (response) {
         return response.data
       });

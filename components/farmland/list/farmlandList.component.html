@@ -1,24 +1,24 @@
-<div layout="row">
-    <md-list ng-cloak ng-show="vm.farmlandList.length > 0">
-        <md-subheader class="md-no-sticky">Poljane:</md-subheader>
-        <md-list-item ng-repeat="farmland in vm.farmlandList" class="md-3-line">
-            <div class="md-list-item-text">
-                <h3>{{farmland.name}} - {{farmland.number}}</h3>
-                <h4>Loakcija: {{farmland.location}}</h4>
-                <p>
-                    Velicine {{farmland.size}} ari
-                </p>
-            </div>
-        </md-list-item>
-    </md-list>
-    <md-content layout-padding ng-show="vm.farmlandList.length == 0">
-        <p>
-            Nema unetih poljana <br>Klikni na
-            <ng-md-icon icon="add"></ng-md-icon>
-            u donjem desnom uglu ako si nabavio novu poljanu
-        </p>
-    </md-content>
-</div>
+<md-subheader class="md-no-sticky">Poljane:</md-subheader>
+<md-list ng-cloak ng-show="vm.farmlandList.length > 0">
+    <md-divider inset></md-divider>
+    <md-list-item ng-repeat="farmland in vm.farmlandList" class="md-3-line" ng-click="vm.edit(farmland.id)">
+        <div class="md-list-item-text">
+            <h3>{{farmland.name}} - {{farmland.number}}</h3>
+            <h4>Loakcija: {{farmland.location}}</h4>
+            <p>
+                Velicine {{farmland.size}} ari
+            </p>
+        </div>
+        <md-divider inset></md-divider>
+    </md-list-item>
+</md-list>
+<md-content layout-padding ng-show="vm.farmlandList.length == 0">
+    <p>
+        Nema unetih poljana <br>Klikni na
+        <ng-md-icon icon="add"></ng-md-icon>
+        u donjem desnom uglu ako si nabavio novu poljanu
+    </p>
+</md-content>
 <md-button class="md-fab md-icon-button md-fab-bottom-right" style="position: fixed !important;" aria-label="FAB"
            ng-click="vm.createFarmland()">
     <ng-md-icon icon="add"></ng-md-icon>

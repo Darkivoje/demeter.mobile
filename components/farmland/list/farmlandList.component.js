@@ -24,10 +24,12 @@ function FarmlandListController($state, farmlandService) {
     farmlandService.get().then(function (response) {
       vm.farmlandList = response
     });
-
   }
-
-
+  
+  vm.edit = function (id) {
+    $state.go('farmlandForm', {id: id})
+  };
+  
   vm.createFarmland = function () {
     $state.go('farmlandForm')
   };
