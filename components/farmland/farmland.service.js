@@ -27,11 +27,26 @@ function farmlandService($http) {
       });
   }
 
-  function save(farmland) {
-    return $http.put('https://pure-stream-30641.herokuapp.com/farmland/', farmland)
+  function update(farmland) {
+    return $http.put('https://pure-stream-30641.herokuapp.com/farmland/' + farmland.id, farmland)
       .then(function (response) {
         return response.data
       });
+  };
+
+  function create(farmland) {
+    return $http.post('https://pure-stream-30641.herokuapp.com/farmland/', farmland)
+      .then(function (response) {
+        return response.data
+      });
+  };
+
+  function save(farmland) {
+    if (farmland.id) {
+      return update(farmland);
+    } else {
+      return create(farmland);
+    }
   }
 
   function getEmptyFarm() {

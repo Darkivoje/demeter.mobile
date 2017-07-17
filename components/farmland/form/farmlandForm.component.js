@@ -18,7 +18,6 @@ FarmlandFormController.$inject = ['$state', '$stateParams', 'farmlandService'];
 function FarmlandFormController($state, $stateParams, farmlandService) {
   var vm = this;
   vm.$onInit = onInit;
-  console.log($stateParams);
 
   function onInit() {
     vm.farmland = farmlandService.getEmptyFarm();
