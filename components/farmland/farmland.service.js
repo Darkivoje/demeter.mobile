@@ -14,28 +14,28 @@ function farmlandService($http) {
   return service;
 
   function get() {
-    return $http.get('https://pure-stream-30641.herokuapp.com/farmland/')
+    return $http.get('https://demeter-api.herokuapp.com/farmland/')
       .then(function (response) {
         return response.data
       });
   }
 
   function getById(id) {
-    return $http.get('https://pure-stream-30641.herokuapp.com/farmland/' + id)
+    return $http.get('https://demeter-api.herokuapp.com/farmland/' + id)
       .then(function (response) {
         return response.data
       });
   }
 
   function update(farmland) {
-    return $http.put('https://pure-stream-30641.herokuapp.com/farmland/' + farmland.id, farmland)
+    return $http.put('https://demeter-api.herokuapp.com/farmland/' + farmland.id, farmland)
       .then(function (response) {
         return response.data
       });
   }
 
   function create(farmland) {
-    return $http.post('https://pure-stream-30641.herokuapp.com/farmland/', farmland)
+    return $http.post('https://demeter-api.herokuapp.com/farmland/', farmland)
       .then(function (response) {
         return response.data
       });

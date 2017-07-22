@@ -25,28 +25,28 @@ function machineService($http) {
   };
 
   function get() {
-    return $http.get('https://pure-stream-30641.herokuapp.com/machine/')
+    return $http.get('https://demeter-api.herokuapp.com/machine/')
       .then(function (response) {
         return response.data
       });
   }
 
   function getById(id) {
-    return $http.get('https://pure-stream-30641.herokuapp.com/machine/' + id)
+    return $http.get('https://demeter-api.herokuapp.com/machine/' + id)
       .then(function (response) {
         return response.data
       });
   }
 
   function update(machine) {
-    return $http.put('https://pure-stream-30641.herokuapp.com/machine/' + machine.id, machine)
+    return $http.put('https://demeter-api.herokuapp.com/machine/' + machine.id, machine)
       .then(function (response) {
         return response.data
       });
   }
 
   function create(machine) {
-    return $http.post('https://pure-stream-30641.herokuapp.com/machine/', machine)
+    return $http.post('https://demeter-api.herokuapp.com/machine/', machine)
       .then(function (response) {
         return response.data
       });
