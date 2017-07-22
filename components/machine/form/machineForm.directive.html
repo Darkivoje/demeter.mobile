@@ -1,21 +1,31 @@
 <section>
     <md-content layout-padding>
         <md-subheader class="md-primary">Nabavio sam novu masinu</md-subheader>
-
+        <form name="vm.machineForm" novalidate>
         <span layout="column">
         <md-input-container>
             <label>Proizveo je</label>
-            <input type="text" ng-model="vm.machine.make">
+            <input type="text" ng-model="vm.machine.make" required name="make">
+            <div ng-messages="vm.machineForm.make.$error">
+                <div ng-message="required">Moras uneti proizvodjaca</div>
+            </div>
         </md-input-container>
 
         <md-input-container>
             <label>Model se zove</label>
-            <input type="text" ng-model="vm.machine.model">
+            <input type="text" ng-model="vm.machine.model" required name="model">
+            <div ng-messages="vm.machineForm.model.$error">
+                <div ng-message="required">Moras uneti model</div>
+            </div>
+
         </md-input-container>
 
         <md-input-container>
             <label>Njen serijski broj</label>
-            <input type="text" ng-model="vm.machine.vin">
+            <input type="text" ng-model="vm.machine.vin" required name="vin">
+            <div ng-messages="vm.machineForm.vin.$error">
+                <div ng-message="required">Moras uneti serijski broj</div>
+            </div>
         </md-input-container>
 
         <md-input-container>
@@ -39,7 +49,8 @@
             <md-button ng-click="vm.cancelSubmit()">Odustani</md-button>
             <md-button class="md-raised md-primary" ng-click="vm.submitMachine()">Sacuvaj</md-button>
         </div>
-    </span>
+        </span>
+        </form>
     </md-content>
 
 </section>

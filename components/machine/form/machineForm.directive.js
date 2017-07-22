@@ -14,6 +14,7 @@ function machineForm() {
 }
 
 MachineFormController.$inject = ['$state', '$stateParams', 'machineService'];
+
 function MachineFormController($state, $stateParams, machineService) {
   var vm = this;
   vm.$onInit = onInit;
@@ -28,9 +29,11 @@ function MachineFormController($state, $stateParams, machineService) {
   }
 
   vm.submitMachine = function () {
-    machineService.save(vm.machine).then(function (response) {
-      $state.go('machineList')
-    });
+    if (!vm.machineForm.$invalid) {
+      machineService.save(vm.machine).then(function (response) {
+        $state.go('machineList')
+      });
+    }
   };
 
   vm.cancelSubmit = function () {
