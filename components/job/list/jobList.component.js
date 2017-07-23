@@ -1,4 +1,6 @@
-angular.module('app.job.list', [])
+require('./../job.service');
+
+angular.module('app.job.list', ['app.job.service'])
   .directive('jobList', jobList);
 
 function jobList() {
@@ -11,12 +13,17 @@ function jobList() {
   return directive;
 }
 
-JobListController.$inject = [];
+JobListController.$inject = ['$state', 'jobService'];
 
-function JobListController() {
+function JobListController($state, jobService) {
   var vm = this;
   vm.$onInit = onInit;
+  
   function onInit() {
+    vm.jobList = [];
+    jobService.get().then(function (response) {
+      vm.jobList = response
+    })
   }
 
 

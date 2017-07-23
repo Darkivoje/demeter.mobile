@@ -1,1 +1,34 @@
-job list
+<md-subheader class="md-no-sticky">Zavrseni poslovi:</md-subheader>
+<md-list ng-cloak ng-show="vm.jobList.length > 0">
+    <md-divider inset></md-divider>
+    <md-list-item ng-repeat="job in vm.jobList" class="md-3-line" ng-click="vm.edit(job.id)" layout="row" layout-align="space-between center">
+        <div class="md-list-item-text">
+            <h3>{{job.jobType.name}}</h3>
+            <h4>Na poljani ({{job.farmland.number}}) {{job.farmland.location}}</h4>
+            <p>
+                Koriscene masine <span ng-repeat="machine in job.machines">{{machine.make}} {{machine.model}}</span>
+            </p>
+        </div>
+        <div class="md-list-item-text md-secondary" layout="column" layout-align="center end">
+            <h3>{{job.responsible.firstname}} {{job.responsible.lastname}}</h3>
+            <h4>{{job.startDate | date: 'dd-MM-yyyy'}}</h4>
+            <p>
+                Opis: {{job.description}}
+            </p>
+        </div>
+        <md-divider inset></md-divider>
+    </md-list-item>
+</md-list>
+
+<md-content layout-padding ng-show="vm.jobList.length == 0">
+    <p>
+        Nema unetih zavrsenih poslova <br>Klikni na
+        <ng-md-icon icon="add"></ng-md-icon>
+        u donjem desnom uglu ako si nabavio novu poljanu
+    </p>
+</md-content>
+
+<md-button class="md-fab md-icon-button md-fab-bottom-right" style="position: fixed !important;" aria-label="FAB"
+           ng-click="vm.createJob()">
+    <ng-md-icon icon="add"></ng-md-icon>
+</md-button>
