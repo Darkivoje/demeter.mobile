@@ -33,8 +33,11 @@ function JobFormController($state, $stateParams, machineService, farmlandService
     initFarmlands();
   }
 
-  vm.submit = function(ob) {
-    console.log(vm.job);
+  vm.submit = function() {
+    vm.job.responsible = 1;
+    jobService.save(vm.job).then(function () {
+      $state.go('jobList')
+    })
   };
 
   function initJobTypes() {

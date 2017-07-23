@@ -1,20 +1,14 @@
 <md-subheader class="md-no-sticky">Zavrseni poslovi:</md-subheader>
-<md-list ng-cloak ng-show="vm.jobList.length > 0" class="md-dense">
+<md-list ng-cloak ng-show="vm.jobList.length > 0">
     <md-divider inset></md-divider>
     <md-list-item ng-repeat="job in vm.jobList" class="md-3-line" ng-click="vm.edit(job.id)" layout="row" layout-align="space-between center">
         <div class="md-list-item-text">
             <h3>{{job.jobType.name}}</h3>
-            <h4>Na poljani ({{job.farmland.number}}) {{job.farmland.location}}</h4>
-            <p>
-                Koriscene masine: <p ng-repeat="machine in job.machines">{{machine.make}} {{machine.model}}</p>
-            </p>
+            <h4>{{job.startDate | date: 'dd-MM-yyyy'}}</h4>
+            <p>Na poljani ({{job.farmland.number}}) {{job.farmland.location}}</p>
         </div>
         <div class="md-list-item-text md-secondary" layout="column" layout-align="center end">
             <h3>{{job.responsible.firstname}} {{job.responsible.lastname}}</h3>
-            <h4>{{job.startDate | date: 'dd-MM-yyyy'}}</h4>
-            <p>
-                Opis: {{job.description}}
-            </p>
         </div>
         <md-divider inset></md-divider>
     </md-list-item>
