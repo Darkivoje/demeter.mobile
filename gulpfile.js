@@ -18,7 +18,7 @@ var gulp = require('gulp'),
     preCss = require('precss'),
     mqpacker = require('css-mqpacker'),
     csswring = require('csswring'),
-    karma = require('karma').server;
+    karma = require('karma').Server;
 
 var options = {
     src: './',
@@ -132,9 +132,10 @@ gulp.task('lint', function () {
         .pipe(jshint.reporter('default'));
 });
 
-gulp.task('test', ['templates'], function (done) {
-    karma.start({
-        configFile: __dirname + '/karma.conf.js'
-    }, done);
+gulp.task('test', function(done) {
+  karma.start({
+    configFile: __dirname + '/karma.conf.js'
+  }, function() {
+    done();
+  });
 });
-
