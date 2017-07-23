@@ -20,7 +20,7 @@ function machineService($http) {
       plates: '',
       vin: '',
       manufactured: new Date(),
-      workHours: ''
+      workHours: 0
     };
   };
 

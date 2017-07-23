@@ -39,6 +39,10 @@ function JobFormController($state, $stateParams, machineService, farmlandService
       $state.go('jobList')
     })
   };
+  
+  vm.cancelSubmit = function () {
+    $state.go('jobList')
+  };
 
   function initJobTypes() {
     vm.jobTypes = [];
