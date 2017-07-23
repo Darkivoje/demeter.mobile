@@ -1,75 +1,62 @@
-angular.module('app.job.form', [])
-    .directive('jobForm', jobForm);
+require('../../machine/machine.service');
+require('../../farmland/farmland.service');
+require('../job.service');
+
+angular.module('app.job.form', [
+  'app.job.service',
+  'app.machine.service',
+  'app.farmland.service'])
+
+  .directive('jobForm', jobForm);
 
 function jobForm() {
-    var directive = {
-        controller: JobFormController,
-        controllerAs: 'vm',
-        templateUrl: '/job/form/jobForm.directive.html',
-        restrict: 'EA'
-    };
-    return directive;
+  var directive = {
+    controller: JobFormController,
+    controllerAs: 'vm',
+    templateUrl: '/job/form/jobForm.directive.html',
+    restrict: 'EA'
+  };
+  return directive;
 }
 
-JobFormController.$inject = [];
+JobFormController.$inject = ['$state', '$stateParams', 'machineService', 'farmlandService', 'jobService'];
 
-function JobFormController() {
-    var vm = this;
-    vm.$onInit = onInit;
-    function onInit() {
+function JobFormController($state, $stateParams, machineService, farmlandService, jobService) {
 
-        vm.availableMachines = [
-            {
-                category: 'powered',
-                name: 'IMT Traktor',
-                id: 1
-            },{
-                category: 'powered',
-                name: 'Klass Kombajn',
-                id: 2
-            },{
-                category: 'towed',
-                name: 'Masina za oranje',
-                id: 3
-            },{
-                category: 'towed',
-                name: 'Cisterna Voda',
-                id: 4
-            }
-        ];
+  var vm = this;
+  vm.$onInit = onInit;
 
-        vm.availableJobs = [
-            {
-                value: 'preparing',
-                title: 'Spremanje'
-            }, {
-                value: 'plowing',
-                title: 'Oranje'
-            }, {
-                value: 'spraying',
-                title: 'Prskanje'
-            }, {
-                value: 'fertilizing',
-                title: 'Djubrenje'
-            }, {
-                value: 'watering',
-                title: 'Zalivanje'
-            }
-        ];
+  function onInit() {
+    vm.job = jobService.getEmptyJob();
+    initJobTypes();
+    initMachines();
+    initFarmlands();
+  }
 
-        vm.availableFields = [
-            {
-                id: 1,
-                name: 'Kod Markovica'
-            }, {
-                id: 2,
-                name: 'Pre hetina'
-            }, {
-                id: 3,
-                name: 'Iza itebeja'
-            }
-        ];
-    }
+  vm.submit = function(ob) {
+    console.log(vm.job);
+  };
+
+  function initJobTypes() {
+    vm.jobTypes = [];
+    jobService.getJobTypes().then(function (response) {
+      vm.jobTypes = response
+    });
+  }
+
+  function initFarmlands() {
+    vm.availableFarmlands = [];
+    farmlandService.get().then(function (response) {
+      vm.availableFarmlands = response
+    });
+  }
+
+  function initMachines () {
+    vm.availableMachines = [];
+    machineService.get().then(function (response) {
+      vm.availableMachines = response
+    });
+  }
 
 
 }

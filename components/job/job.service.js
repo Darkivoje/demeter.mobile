@@ -7,6 +7,7 @@ jobService.$inject = ['$http'];
 function jobService($http) {
   var service = {
     getEmptyJob: getEmptyJob,
+    getJobTypes: getJobTypes,
     getById: getById,
     get: get,
     save: save
@@ -15,13 +16,19 @@ function jobService($http) {
 
   function getEmptyJob() {
     return {
-      make: '',
-      model: '',
-      plates: '',
-      vin: '',
-      manufactured: new Date(),
-      workHours: ''
+      jobType: 0,
+      farmland: 0,
+      description: '',
+      machines: [],
+      startDate: new Date()
     };
+  }
+
+  function getJobTypes() {
+    return $http.get('https://demeter-api.herokuapp.com/jobType/')
+      .then(function (response) {
+        return response.data
+      });
   }
 
   function get() {

@@ -26,5 +26,8 @@ function JobListController($state, jobService) {
     })
   }
 
+  vm.createJob = function () {
+    $state.go('jobForm')
+  };
 
 }
