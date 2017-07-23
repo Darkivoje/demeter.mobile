@@ -6,12 +6,9 @@
         <md-list-item ng-repeat="machine in vm.machineList" class="md-3-line" ng-click="vm.edit(machine.id)">
             <div class="md-list-item-text">
                 <h3>{{machine.model}} - {{machine.make}}</h3>
-                <h4>Reg. br: {{machine.plates}}</h4>
+                <h4 ng-if="machine.plates.length">Reg. br: {{machine.plates}}</h4>
                 <p ng-if="machine.manufactured.length">
-                    Kupljena {{machine.manufactured | date : 'yyyy'}} godine
-                </p>
-                <p ng-if="machine.workHours">
-                    Radnih sati: {{machine.workHours}}
+                    Kupljena {{machine.manufactured | date : 'yyyy'}} godine <br>
                 </p>
             </div>
             <md-divider inset></md-divider>
